@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.springboot.MallDAO">
+<insert id="register" parameterType="java.util.HashMap">
+	insert into member set userid=#{param1}, pwd=#{param2}, name=#{param3}, mobile=#{param4}, address=#{param5}, email=#{param6}
+</insert>
+<select id="signon" resultType="String">
+	select name from member where userid=#{param1} and pwd=#{param2}
+</select>
+<select id="getList" resultType="com.himedia.springboot.ListDTO">
+	select p_id,brand,p_name,price,category_id,category,comment,img,hit,created,updated from product
+</select>
+<select id="getCList" resultType="com.himedia.springboot.ListDTO">
+	select p_id,brand,p_name,price,category_id,category,comment,img,hit,created,updated from product where category=#{param1}
+</select>
+<select id="view" resultType="com.himedia.springboot.ListDTO">
+	select p_id,brand,p_name,price,category_id,category,comment,img,hit,created,updated from product where p_id=#{param1};
+</select>
+<update id="hitup">
+	update product set hit=hit+1 where p_id=#{param1};
+</update>
+<select id="color" resultType="com.himedia.springboot.ColorDTO">
+	select p_id,c_id,color from color where p_id=#{param1}
+</select>
+<select id="getSize" resultType="com.himedia.springboot.SizeDTO">
+	select p_id,c_id,size,qty from size where p_id=#{param1}
+</select>
+</mapper>

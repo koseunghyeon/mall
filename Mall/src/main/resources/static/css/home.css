@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.items{
+	border: 1px solid black; 
+	height:22%; 
+	width:12.3%; 
+	float:left;
+	text-align : center;
+}
+#brandTitle{
+	background-color:darkblue;
+	color:white;
+	height:50px;
+	width:95%;
+	font-size: x-large;
+	font-weight:bold;
+	padding : 8px 0;
+}
